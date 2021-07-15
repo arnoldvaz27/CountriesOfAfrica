@@ -72,11 +72,23 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
             @SuppressLint("StaticFieldLeak")
             class Count extends AsyncTask<Void, Void, List<Country>> {
                 int a;
+                int b;
 
                 @Override
                 protected List<Country> doInBackground(Void... voids) {
                     a = CountryDatabase.getCountryDatabase(getApplicationContext()).countryDao().getDataCount();
                     if (a == 60) {
+                        b = 0;
+                    } else {
+                        b = 1;
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(List<Country> countries) {
+                    super.onPostExecute(countries);
+                    if (b == 0) {
                         Display();
                     } else {
                         @SuppressLint("StaticFieldLeak")
@@ -98,15 +110,7 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
                             }
                         }
                         new Delete().execute();
-
                     }
-                    return null;
-                }
-
-                @Override
-                protected void onPostExecute(List<Country> countries) {
-                    super.onPostExecute(countries);
-
                 }
             }
             new Count().execute();
@@ -114,11 +118,23 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
             @SuppressLint("StaticFieldLeak")
             class Count extends AsyncTask<Void, Void, List<Country>> {
                 int a;
+                int b;
 
                 @Override
                 protected List<Country> doInBackground(Void... voids) {
                     a = CountryDatabase.getCountryDatabase(getApplicationContext()).countryDao().getDataCount();
                     if (a == 60) {
+                        b = 0;
+                    } else {
+                        b = 1;
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(List<Country> countries) {
+                    super.onPostExecute(countries);
+                    if (b == 0) {
                         Display();
                     } else {
                         @SuppressLint("StaticFieldLeak")
@@ -140,15 +156,7 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
                             }
                         }
                         new Delete().execute();
-
                     }
-                    return null;
-                }
-
-                @Override
-                protected void onPostExecute(List<Country> countries) {
-                    super.onPostExecute(countries);
-
                 }
             }
             new Count().execute();
