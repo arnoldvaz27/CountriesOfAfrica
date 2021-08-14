@@ -34,10 +34,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings({"deprecation"})
 public class MainActivity extends AppCompatActivity implements CountryListeners {
 
     // declaration of the various views and components
-    ImageView imageView;
+    ImageView imageView,imageView1;
     String countryName, countryBorders, population, subregion, region, capital, flag, languages;
     private RecyclerView countryRecyclerView;
     private List<Country> countriesList;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
         //initializing
         loadingBar = new ProgressDialog(this);
         imageView = findViewById(R.id.delete);
+        imageView1 = findViewById(R.id.more);
+
         countryRecyclerView = findViewById(R.id.RecyclerView);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this);
@@ -166,6 +169,8 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
 
         //imageview with click listener, which will delete the data after the user clicks on this view
         imageView.setOnClickListener(v -> DeletingData());
+
+        imageView1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),MoreMenu.class)));
 
         //imageview with click listener, which will reload the whole activity without any animation.
         findViewById(R.id.refresh).setOnClickListener(v -> {
@@ -288,6 +293,7 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
                         .countryDao().getAllCountries();
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             protected void onPostExecute(List<Country> countries) {
                 super.onPostExecute(countries);
@@ -308,6 +314,7 @@ public class MainActivity extends AppCompatActivity implements CountryListeners 
 
     //method for deleting all the data from the room database
     public void DeletingData(){
+        @SuppressLint("StaticFieldLeak")
         class Delete extends AsyncTask<Void, Void, List<Country>> {
             @Override
             protected List<Country> doInBackground(Void... voids) {
