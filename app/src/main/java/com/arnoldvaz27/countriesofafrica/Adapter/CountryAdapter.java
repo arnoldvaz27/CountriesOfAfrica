@@ -1,4 +1,4 @@
-package com.arnold.countriesofafrica.Adapter;
+package com.arnoldvaz27.countriesofafrica.Adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arnold.countriesofafrica.R;
-import com.arnold.countriesofafrica.JavaClasses.ImageFetch;
-import com.arnold.countriesofafrica.entites.Country;
-import com.arnold.countriesofafrica.listeners.CountryListeners;
+import com.arnoldvaz27.countriesofafrica.Activity.R;
+import com.arnoldvaz27.countriesofafrica.JavaClasses.ImageFetch;
+import com.arnoldvaz27.countriesofafrica.entites.Country;
+import com.arnoldvaz27.countriesofafrica.listeners.CountryListeners;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.arnold.countriesofafrica.entites;
+package com.arnoldvaz27.countriesofafrica.entites;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
